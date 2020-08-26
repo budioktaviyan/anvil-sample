@@ -27,6 +27,12 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
+  lintOptions {
+    disable(
+        "UnsafeExperimentalUsageError",
+        "UnsafeExperimentalUsageError"
+    )
+  }
   sourceSets {
     getByName("main").java.srcDirs("src/main/kotlin")
   }
