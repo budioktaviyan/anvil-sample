@@ -18,6 +18,10 @@ android {
     versionName = Config.versionName
 
     buildFeatures.viewBinding = true
+
+    buildConfigField("String", "API_KEY", Config.Movie.key)
+    buildConfigField("String", "BASE_URL", Config.Movie.baseUrl)
+    buildConfigField("String", "IMAGE_URL", Config.Movie.imageUrl)
   }
   buildTypes {
     getByName("debug") {
@@ -49,6 +53,7 @@ dependencies {
 
   implementation(Dependencies.Libraries.AndroidX.appcompat)
   implementation(Dependencies.Libraries.AndroidX.constraintlayout)
+  implementation(Dependencies.Libraries.AndroidX.lifecycle)
 
   implementation(Dependencies.Libraries.Dagger.core)
   kapt(Dependencies.Libraries.Dagger.compiler)

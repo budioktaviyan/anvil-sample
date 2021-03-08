@@ -12,6 +12,7 @@ object Version {
   object AndroidX {
     const val appcompat = "1.2.0"
     const val constraintlayout = "2.0.4"
+    const val lifecycle = "2.2.0"
   }
 
   object Google {
