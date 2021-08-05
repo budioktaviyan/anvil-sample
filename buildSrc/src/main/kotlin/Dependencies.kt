@@ -15,6 +15,7 @@ object Dependencies {
     object AndroidX {
       const val appcompat = "androidx.appcompat:appcompat:${Version.AndroidX.appcompat}"
       const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Version.AndroidX.constraintlayout}"
+      const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Version.AndroidX.lifecycle}"
     }
 
     object Google {
