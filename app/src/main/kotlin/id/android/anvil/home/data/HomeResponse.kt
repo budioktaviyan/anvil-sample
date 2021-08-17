@@ -3,6 +3,7 @@ package id.android.anvil.home.data
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Serializable
 data class HomeResponse(
   @SerialName("results")
   val results: List<Result>?) {
