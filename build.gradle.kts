@@ -4,8 +4,8 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath(Dependencies.BuildPlugins.android)
-    classpath(Dependencies.BuildPlugins.kotlin)
+    classpath(dep.build_plugins.android)
+    classpath(dep.build_plugins.kotlin)
   }
 }
 

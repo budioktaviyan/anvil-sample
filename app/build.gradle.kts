@@ -1,27 +1,28 @@
 plugins {
   id("com.android.application")
-  id("com.squareup.anvil") version (Version.anvil)
+  id("com.squareup.anvil") version (ver.anvil)
   kotlin("android")
-  kotlin("plugin.serialization") version (Version.Kotlin.stdlib)
   kotlin("kapt")
+  kotlin("plugin.serialization") version (ver.kotlin.stdlib)
 }
 
 android {
-  compileSdkVersion(Config.compileSdkVersion)
-  buildToolsVersion(Config.buildToolsVersion)
+  compileSdkVersion(cfg.android.compileSdkVersion)
+  buildToolsVersion(cfg.android.buildToolsVersion)
 
   defaultConfig {
-    applicationId = Config.applicationId
-    minSdkVersion(Config.minSdkVersion)
-    targetSdkVersion(Config.targetSdkVersion)
-    versionCode = Config.versionCode
-    versionName = Config.versionName
+    minSdkVersion(cfg.android.minSdkVersion)
+    targetSdkVersion(cfg.android.targetSdkVersion)
+
+    applicationId = cfg.app.applicationId
+    versionCode = cfg.app.versionCode
+    versionName = cfg.app.versionName
 
     buildFeatures.viewBinding = true
 
-    buildConfigField("String", "API_KEY", Config.Movie.key)
-    buildConfigField("String", "BASE_URL", Config.Movie.baseUrl)
-    buildConfigField("String", "IMAGE_URL", Config.Movie.imageUrl)
+    buildConfigField("String", "API_KEY", cfg.app.key)
+    buildConfigField("String", "BASE_URL", cfg.app.baseUrl)
+    buildConfigField("String", "IMAGE_URL", cfg.app.imageUrl)
   }
   buildTypes {
     getByName("debug") {
@@ -39,27 +40,27 @@ android {
 }
 
 dependencies {
-  implementation(Dependencies.Libraries.Kotlin.stdlib)
-  implementation(Dependencies.Libraries.Kotlin.serialization)
+  implementation(dep.libs.kotlin.stdlib)
+  implementation(dep.libs.kotlin.serialization)
 
-  implementation(Dependencies.Libraries.Google.material)
+  implementation(dep.libs.google.material)
 
-  implementation(Dependencies.Libraries.AndroidX.appcompat)
-  implementation(Dependencies.Libraries.AndroidX.constraintlayout)
-  implementation(Dependencies.Libraries.AndroidX.lifecycle)
+  implementation(dep.libs.androidx.appcompat)
+  implementation(dep.libs.androidx.constraintlayout)
+  implementation(dep.libs.androidx.lifecycle)
 
-  implementation(Dependencies.Libraries.Dagger.core)
-  kapt(Dependencies.Libraries.Dagger.compiler)
+  implementation(dep.libs.dagger.core)
+  kapt(dep.libs.dagger.compiler)
 
-  implementation(Dependencies.Libraries.ReactiveX.rxjava)
-  implementation(Dependencies.Libraries.ReactiveX.rxkotlin)
-  implementation(Dependencies.Libraries.ReactiveX.rxandroid)
+  implementation(dep.libs.reactivex.rxjava)
+  implementation(dep.libs.reactivex.rxkotlin)
+  implementation(dep.libs.reactivex.rxandroid)
 
-  implementation(Dependencies.Libraries.OkHttp.logging)
+  implementation(dep.libs.okhttp.logging)
 
-  implementation(Dependencies.Libraries.Retrofit.core)
-  implementation(Dependencies.Libraries.Retrofit.converter)
-  implementation(Dependencies.Libraries.Retrofit.adapter)
+  implementation(dep.libs.retrofit.core)
+  implementation(dep.libs.retrofit.converter)
+  implementation(dep.libs.retrofit.adapter)
 
-  implementation(Dependencies.Libraries.Coil.core)
+  implementation(dep.libs.coil.core)
 }
