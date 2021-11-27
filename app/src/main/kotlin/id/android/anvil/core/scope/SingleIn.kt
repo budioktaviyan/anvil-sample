@@ -1,9 +1,9 @@
-package id.android.anvil.core.qualifier
+package id.android.anvil.core.scope
 
 import javax.inject.Scope
 import kotlin.annotation.AnnotationRetention.RUNTIME
 import kotlin.reflect.KClass
 
-@Retention(RUNTIME)
 @Scope
+@Retention(RUNTIME)
 annotation class SingleIn(val value: KClass<*>)

@@ -1,4 +1,4 @@
-package id.android.anvil.core.factory
+package id.android.anvil.core.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

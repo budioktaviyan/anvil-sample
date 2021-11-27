@@ -1,4 +1,4 @@
-package id.android.anvil.core.qualifier
+package id.android.anvil.core.scope
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

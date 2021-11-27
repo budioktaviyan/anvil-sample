@@ -14,14 +14,14 @@ import id.android.anvil.home.domain.HomeRepositoryImpl
 import id.android.anvil.home.domain.HomeUsecase
 import id.android.anvil.home.presentation.HomeViewModel
 import retrofit2.Retrofit
-import id.android.anvil.core.qualifier.ViewModel as ViewModels
+import id.android.anvil.core.scope.ViewModel as ViewModels
 
+@Suppress("Unused")
 @Module
 @ContributesTo(ApplicationScope::class)
 abstract class HomeModule {
 
   companion object {
-
     @Provides
     fun providesHomeDatasource(retrofit: Retrofit): HomeDatasource =
       retrofit.create(HomeDatasource::class.java)

@@ -5,8 +5,8 @@ import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides
 import id.android.anvil.BuildConfig
-import id.android.anvil.core.qualifier.SingleIn
 import id.android.anvil.core.scope.ApplicationScope
+import id.android.anvil.core.scope.SingleIn
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -21,8 +21,8 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 @ContributesTo(ApplicationScope::class)
 object NetworkModule {
 
-  @Provides
   @SingleIn(ApplicationScope::class)
+  @Provides
   fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor =
     HttpLoggingInterceptor().apply {
       level = when (BuildConfig.DEBUG) {
@@ -31,8 +31,8 @@ object NetworkModule {
       }
     }
 
-  @Provides
   @SingleIn(ApplicationScope::class)
+  @Provides
   fun providesHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
     OkHttpClient.Builder().apply {
       retryOnConnectionFailure(true)
@@ -40,8 +40,8 @@ object NetworkModule {
     }.build()
 
   @ExperimentalSerializationApi
-  @Provides
   @SingleIn(ApplicationScope::class)
+  @Provides
   fun providesHttpAdapter(client: OkHttpClient): Retrofit {
     val contentType = "application/json".toMediaType()
     val json = Json { ignoreUnknownKeys = true }

@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Binds
 import dagger.Module
-import id.android.anvil.core.factory.ViewModelFactory
 import id.android.anvil.core.scope.ApplicationScope
 
+@Suppress("Unused")
 @Module
 @ContributesTo(ApplicationScope::class)
 abstract class ApplicationModule {
