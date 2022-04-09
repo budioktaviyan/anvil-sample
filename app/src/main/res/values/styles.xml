@@ -1,5 +1,4 @@
 <resources>
-
   <style name="AppTheme" parent="Theme.MaterialComponents.Light">
     <item name="colorPrimary">@color/white</item>
     <item name="colorPrimaryDark">@android:color/transparent</item>

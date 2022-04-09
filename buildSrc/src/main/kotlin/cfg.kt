@@ -3,10 +3,10 @@
 object cfg {
 
   object android {
-    const val compileSdkVersion = 30
-    const val buildToolsVersion = "30.0.3"
-    const val minSdkVersion = 28
-    const val targetSdkVersion = 30
+    const val compileSdk = 31
+    const val buildToolsVersion = "31.0.0"
+    const val minSdk = 29
+    const val targetSdk = 31
   }
 
   object app {

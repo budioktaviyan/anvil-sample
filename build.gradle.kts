@@ -14,6 +14,13 @@ allprojects {
     google()
     mavenCentral()
   }
+  configurations.all {
+    resolutionStrategy.eachDependency {
+      if (requested.group == "org.jetbrains.kotlin") {
+        useVersion(ver.kotlin.stdlib)
+      }
+    }
+  }
 }
 
 tasks.register<Delete>("clean") {

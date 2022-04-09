@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-  compileSdkVersion(cfg.android.compileSdkVersion)
-  buildToolsVersion(cfg.android.buildToolsVersion)
+  compileSdk = cfg.android.compileSdk
+  buildToolsVersion = cfg.android.buildToolsVersion
 
   defaultConfig {
-    minSdkVersion(cfg.android.minSdkVersion)
-    targetSdkVersion(cfg.android.targetSdkVersion)
+    minSdk = cfg.android.minSdk
+    targetSdk = cfg.android.targetSdk
 
     applicationId = cfg.app.applicationId
     versionCode = cfg.app.versionCode
@@ -36,6 +36,13 @@ android {
   }
   sourceSets {
     getByName("main").java.srcDirs("src/main/kotlin")
+  }
+  compileOptions {
+    sourceCompatibility(JavaVersion.VERSION_11)
+    targetCompatibility(JavaVersion.VERSION_11)
+  }
+  kotlinOptions {
+    jvmTarget = JavaVersion.VERSION_11.toString()
   }
 }
 
