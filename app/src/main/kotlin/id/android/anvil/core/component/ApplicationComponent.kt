@@ -6,6 +6,7 @@ import dagger.BindsInstance
 import dagger.Component
 import id.android.anvil.core.scope.ApplicationScope
 import id.android.anvil.core.scope.SingleIn
+import id.android.anvil.detail.presentation.DetailActivity
 import id.android.anvil.home.presentation.HomeActivity
 
 @SingleIn(ApplicationScope::class)
@@ -22,4 +23,5 @@ interface ApplicationComponent {
   }
 
   fun inject(activity: HomeActivity)
+  fun inject(activity: DetailActivity)
 }

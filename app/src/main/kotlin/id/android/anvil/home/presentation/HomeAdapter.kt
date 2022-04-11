@@ -5,11 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
+import id.android.anvil.R
 import id.android.anvil.databinding.ItemHomeBinding
 import id.android.anvil.home.domain.HomeEntity.Result
 import id.android.anvil.home.presentation.HomeAdapter.HomeViewHolder
 
-class HomeAdapter(private val results: List<Result>) : Adapter<HomeViewHolder>() {
+interface HomeAdapterCallback {
+
+  fun onClick(result: Result)
+}
+
+class HomeAdapter(private val callback: HomeAdapterCallback, private val results: List<Result>) : Adapter<HomeViewHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
     HomeViewHolder(
@@ -32,7 +38,9 @@ class HomeAdapter(private val results: List<Result>) : Adapter<HomeViewHolder>()
       with(binding) {
         ivHome.load(result.image)
         tvTitle.text = result.title
-        tvRating.text = "${result.rating}"
+        tvRating.text = binding.root.context.getString(R.string.rating, result.rating.toString())
+
+        root.setOnClickListener { callback.onClick(result) }
       }
     }
   }

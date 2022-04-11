@@ -1,6 +1,7 @@
 plugins {
   id("com.android.application")
   id("com.squareup.anvil") version (ver.anvil)
+  id("kotlin-parcelize")
   kotlin("android")
   kotlin("kapt")
   kotlin("plugin.serialization") version (ver.kotlin.stdlib)

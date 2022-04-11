@@ -17,12 +17,19 @@ class HomeRepositoryImpl(private val factory: HomeFactory) : HomeRepository {
       val results = response.results ?: emptyList()
 
       HomeEntity(results = results.map { result ->
-        val id = result.id ?: -1L
         val title = result.title ?: "Untitled"
+        val content = result.overview ?: "Oh snap! No content here"
         val image = "${BuildConfig.IMAGE_URL}/${result.posterPath ?: "untitled.jpg"}"
+        val background = "${BuildConfig.IMAGE_URL}/${result.backdropPath ?: "untitled.jpg"}"
         val rating = result.voteAverage ?: 0.0
 
-        Result(id = id, title = title, image = image, rating = rating)
+        Result(
+          title = title,
+          content = content,
+          image = image,
+          background = background,
+          rating = rating
+        )
       })
     }
 }
